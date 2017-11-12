@@ -6,7 +6,9 @@ export const getNotes = () =>
             setTimeout(() =>
                 resolve(
                     [
-                        { title: "Mock Note 1", description: "Mock Desc 1" }
+                        { title: "Mock Note 1", description: "Mock Desc 1" },
+                        { title: "Mock Note 2", description: "Mock Desc 2" },
+                        { title: "Mock Note 3", description: "Mock Desc 3" }
                     ]
                 )
             )

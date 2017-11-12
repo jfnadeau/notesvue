@@ -1,9 +1,8 @@
 <div>
 
-    <div v-for="n in $store.getters.allNotes">
+    <div v-for="(n, index) in $store.getters.allNotes">
 
-        <h1>{{n.title}}</h1>
-        <p>{{n.description}}</p>
+        <note-summary :title="n.title" :selected="$store.state.selectedIndex == index" @select="selectNote(index)"></note-summary>
 
     </div>
 

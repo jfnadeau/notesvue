@@ -11,6 +11,6 @@ export const fetchNotesAction : Action<RootStore, any> = async (context) => {
     context.commit<LoadNotesPayload>({type: "load-notes", notes: notes})
 }
 
-export const fetchNotes = (store: Store<any>) => {
+export const dispatchFetchNotes = (store: Store<any>) => {
     store.dispatch(FETCH_NOTES_ACTION);
 }

@@ -1,11 +1,22 @@
 import Vue from "vue"
+
 import withRender from "./notes-summary.html"
 
-import { Note } from "../../services/notes/model"
-import { fetchNotes } from "../../store/actions/fetch-notes";
+import { NoteSummary } from './note-summary';
+
+import { dispatchFetchNotes } from "../../store/actions/fetch-notes";
+import { commitSelectNote } from '../../store/mutations/select-note';
 
 export default withRender(Vue.extend({
     created: function() {
-        fetchNotes(this.$store);
+        dispatchFetchNotes(this.$store);
+    },
+    methods: {
+        selectNote(selectedIndex: number) {
+            commitSelectNote(this.$store, selectedIndex);
+        }
+    },
+    components: {
+        "note-summary": NoteSummary
     }
 }));
