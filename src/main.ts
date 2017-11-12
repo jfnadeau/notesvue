@@ -1,10 +1,13 @@
 import Vue from "vue"
-import Test from "./components/test/test"
+import Store from "./store/root";
+import NotesSummary from "./components/notes-summary/notes-summary"
+
 
 new Vue({
     el: '#app',
+    store: Store,
     components: {
-      Test
+      NotesSummary
     },
-    render : h => h('test')
+    render : h => h('notes-summary')
   });
