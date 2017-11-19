@@ -1,3 +1,4 @@
+import { selectedNoteGetter } from './getters/selected-note';
 import Vuex from "vuex"
 import Vue from "vue"
 import RootStore from "../store/model/rootstore";
@@ -20,8 +21,6 @@ export default new Vuex.Store<RootStore>({
         [FETCH_NOTES_ACTION]: fetchNotesAction
     },
     getters: {
-        allNotes: (state) => {
-            return state.notes;
-        }
+        selectedNoteGetter
     }
 })

@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open --hot"
   },
   "author": "",
   "license": "ISC"
