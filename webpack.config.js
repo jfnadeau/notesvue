@@ -1,10 +1,12 @@
+const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: './src/main.ts',
     output: {
         path: __dirname + "/dist",
-        filename: "main.js"
+        filename: "[name].js"
     },
     devtool: 'inline-source-map',
     devServer: {
@@ -19,7 +21,7 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'vue-template-loader',
-                exclude: __dirname + "/src/index.html"
+                exclude: path.join(__dirname, "/src/index.html")
             }
         ]
     },
@@ -28,7 +30,13 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: __dirname + "/src/index.html"
+            template: path.join(__dirname, "/src/index.html")
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: "vendor",
+            minChunks: function (module) {
+                return module.context && module.context.indexOf("node_modules") !== -1;
+            }
         })
     ]
 };
