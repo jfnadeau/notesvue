@@ -22,5 +22,10 @@ export const NoteEditor = withRender(Vue.extend({
         initialNote: function (newInitialNote: Note) {
             this.note = { ...newInitialNote };
         }
+    },
+    methods: {
+        save() {
+            this.$emit("save", { ...this.note });
+        }
     }
 }));

@@ -13,3 +13,11 @@ export const getNotes = () =>
                 )
             )
     )
+
+export const persistNote = (note: Note) =>
+    new Promise<Note[]>(
+        (resolve, reject) =>
+            setTimeout(() =>
+                resolve()
+            )
+    )

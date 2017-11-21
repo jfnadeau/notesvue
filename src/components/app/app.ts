@@ -5,6 +5,7 @@ import { NotesSummary } from './../notes-summary/notes-summary';
 import { NoteEditor } from './../note-editor/note-editor';
 import withRender from "./app.html"
 import { getSelectedNote } from '../../store/getters/selected-note';
+import { dispatchPersistNote } from '../../store/actions/persist-note';
 
 export const App = withRender(Vue.extend({
     created: function () {
@@ -13,6 +14,11 @@ export const App = withRender(Vue.extend({
     computed: {
         initialNote(): Note {
             return getSelectedNote(this.$store);
+        }
+    },
+    methods: {
+        save(note: Note) {
+            dispatchPersistNote(this.$store, note);
         }
     },
     components: {
