@@ -2,6 +2,8 @@ import { Note, NoteProp } from './../../services/notes/model';
 import Vue from "vue";
 import withRender from "./note-editor.html"
 
+import "./note-editor.css"
+
 export const NoteEditor = withRender(Vue.extend({
 
     props: {

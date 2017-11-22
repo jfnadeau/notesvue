@@ -16,10 +16,5 @@ export const NoteSummary = withRender(Vue.extend({
         select() {
             this.$emit("select");
         }
-    },
-    computed: {
-        selectedColor(): string {
-            return this.selected ? "gray" : "white"
-        }
     }
 }));

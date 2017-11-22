@@ -1,3 +1,5 @@
-<div v-bind:style="{ backgroundColor: selectedColor }" @click="select()">
-    <h1>{{title}}</h1>
+<div class="note-item pure-g" v-bind:class="{ 'note-item-selected': selected }">
+    <div class="pure-u-3-4 " @click="select()">
+        <h5 class="email-subject ">{{title}}</h5>
+    </div>
 </div>

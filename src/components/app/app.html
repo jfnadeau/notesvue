@@ -1,4 +1,13 @@
-<div>
+<div id="layout" class="content pure-g">
+    <div id="nav" class="pure-u">
+        <div class="nav-inner">
+            <button class="primary-button pure-button">Add</button>
+        </div>
+    </div>
+
     <notes-summary></notes-summary>
-    <note-editor :initial-note="initialNote" @save="save"></note-editor>
+
+    <div id="main" class="pure-u-1">
+        <note-editor :initial-note="initialNote" @save="save"></note-editor>
+    </div>
 </div>

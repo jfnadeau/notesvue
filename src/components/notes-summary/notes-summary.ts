@@ -3,6 +3,8 @@ import withRender from "./notes-summary.html"
 import { NoteSummary } from './note-summary';
 import { commitSelectNote } from '../../store/mutations/select-note';
 
+import "./notes-summary.css"
+
 export const NotesSummary = withRender(Vue.extend({
     methods: {
         selectNote(selectedIndex: number) {

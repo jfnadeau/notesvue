@@ -1,9 +1,5 @@
-<div>
-
+<div id="list" class="pure-u-1">
     <div v-for="(n, index) in $store.state.notes">
-
         <note-summary :title="n.title" :selected="$store.state.selectedIndex == index" @select="selectNote(index)"></note-summary>
-
     </div>
-
 </div>

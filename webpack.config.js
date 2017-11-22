@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
         path: __dirname + "/dist",
         filename: "[name].js"
     },
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     devServer: {
         contentBase: './dist'
     },
@@ -22,6 +23,13 @@ module.exports = {
                 test: /\.html$/,
                 loader: 'vue-template-loader',
                 exclude: path.join(__dirname, "/src/index.html")
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             }
         ]
     },
@@ -31,6 +39,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "/src/index.html")
+        }),
+        new ExtractTextPlugin("[name].css", {
+            allChunks: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: "vendor",
