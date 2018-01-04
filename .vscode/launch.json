@@ -10,6 +10,12 @@
       "name": "Launch Chrome against localhost",
       "url": "http://localhost:8080",
       "webRoot": "${workspaceRoot}"
-    }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest",
+      "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js"
+    },
   ]
 }
