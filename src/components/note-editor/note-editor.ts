@@ -1,33 +1,31 @@
-import { Note, NoteProp } from './../../services/notes/model';
+import { Note } from './../../services/notes/model';
 import Vue from "vue";
+import Component from 'vue-class-component'
+import { Prop, Watch } from "vue-property-decorator";
 import withRender from "./note-editor.html"
 
 import "./note-editor.css"
 
-export const NoteEditor = withRender(Vue.extend({
+@Component
+@withRender
+export class NoteEditor extends Vue {
 
-    props: {
-        initialNote: {
-            type: Object as NoteProp
-        }
-    },
-    data() {
+    @Prop()
+    initialNote: Note;
 
-        let data = {
-            note: {} as Note
-        };
+    note: Note = { title: "", description: "" };
 
-        data.note = this.initialNote ? this.initialNote : { title: "", description: "" };
-        return data;
-    },
-    watch: {
-        initialNote: function (newInitialNote: Note) {
-            this.note = { ...newInitialNote };
-        }
-    },
-    methods: {
-        save() {
-            this.$emit("save", { ...this.note });
+    created() {
+        if (this.initialNote) {
+            this.note = this.initialNote;
         }
     }
-}));
+
+    @Watch("initialNote")
+    watchInitialNote(newInitialNote: Note) {
+        this.note = { ...newInitialNote };
+    }
+    save() {
+        this.$emit("save", { ...this.note });
+    }
+}
