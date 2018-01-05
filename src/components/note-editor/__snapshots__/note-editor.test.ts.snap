@@ -1,65 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NoteEditor should render like snapshot 1`] = `
-<div
-  class="note-editor"
->
-  <div
-    class="note-editor-header pure-g"
-  >
-    <div
-      class="pure-u-1-2"
-    >
-      <h1
-        class="note-editor-title"
-      >
-        
-      </h1>
+<div class="note-editor">
+    <div class="note-editor-header pure-g">
+        <div class="pure-u-1-2">
+            <h1 class="note-editor-title"></h1>
+        </div>
+        <div class="note-editor-controls pure-u-1-2">
+            <button class="secondary-button pure-button">Save</button>
+        </div>
     </div>
-     
-    <div
-      class="note-editor-controls pure-u-1-2"
-    >
-      <button
-        class="secondary-button pure-button"
-      >
-        Save
-      </button>
+    <div class="note-editor-body">
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <label for="title">Title</label>
+                <input name="title" type="text" value="" class="pure-input-1">
+                <label for="description">Description</label>
+                <textarea name="description" rows="20" class="pure-input-1"></textarea>
+            </fieldset>
+        </form>
     </div>
-  </div>
-   
-  <div
-    class="note-editor-body"
-  >
-    <form
-      class="pure-form pure-form-stacked"
-    >
-      <fieldset>
-        <label
-          for="title"
-        >
-          Title
-        </label>
-         
-        <input
-          class="pure-input-1"
-          name="title"
-          type="text"
-        />
-         
-        <label
-          for="description"
-        >
-          Description
-        </label>
-         
-        <textarea
-          class="pure-input-1"
-          name="description"
-          rows="20"
-        />
-      </fieldset>
-    </form>
-  </div>
+</div>
+`;
+
+exports[`NoteEditor should render note content when note prop is updated 1`] = `
+<div class="note-editor">
+    <div class="note-editor-header pure-g">
+        <div class="pure-u-1-2">
+            <h1 class="note-editor-title">new title</h1>
+        </div>
+        <div class="note-editor-controls pure-u-1-2">
+            <button class="secondary-button pure-button">Save</button>
+        </div>
+    </div>
+    <div class="note-editor-body">
+        <form class="pure-form pure-form-stacked">
+            <fieldset>
+                <label for="title">Title</label>
+                <input name="title" type="text" value="new title" class="pure-input-1">
+                <label for="description">Description</label>
+                <textarea name="description" rows="20" class="pure-input-1">new description</textarea>
+            </fieldset>
+        </form>
+    </div>
 </div>
 `;
