@@ -1,8 +1,9 @@
-import { Store, Action } from "vuex"
-import RootStore from "../model/rootstore"
-import { persistNote } from "../../services/notes/service";
-import { Note } from "../../services/notes/model";
-import { SaveNotePayload } from "../mutations/save-note";
+import { Action, Store } from 'vuex';
+
+import { Note } from '../../services/notes/model';
+import { persistNote } from '../../services/notes/service';
+import { RootStore } from '../model/rootstore';
+import { SaveNotePayload } from '../mutations/save-note';
 
 export const PERSIST_NOTE_ACTION = "save-note";
 

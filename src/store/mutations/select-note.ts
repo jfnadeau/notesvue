@@ -1,6 +1,6 @@
-import {Store, Mutation } from "vuex"
-import { Note } from "../../services/notes/model";
-import RootStore from "../model/rootstore"
+import { Mutation, Store } from 'vuex';
+
+import { RootStore } from '../model/rootstore';
 
 export const SELECT_NOTE_MUTATION = "select-note"
 
@@ -9,10 +9,10 @@ export interface SelectNotePayload {
     selectedIndex: number
 }
 
-export const selectNoteMutation: Mutation<RootStore> = (state, payload : SelectNotePayload) => {
+export const selectNoteMutation: Mutation<RootStore> = (state, payload: SelectNotePayload) => {
     state.selectedIndex = payload.selectedIndex;
 }
 
 export const commitSelectNote = (store: Store<any>, selectedIndex: number) => {
-    store.commit<SelectNotePayload>({type: SELECT_NOTE_MUTATION, selectedIndex});
+    store.commit<SelectNotePayload>({ type: SELECT_NOTE_MUTATION, selectedIndex });
 }

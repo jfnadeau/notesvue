@@ -1,4 +1,4 @@
-import { Note } from "./model"
+import { Note } from './model';
 
 export const getNotes = () =>
     new Promise<Note[]>(

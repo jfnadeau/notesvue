@@ -1,6 +1,6 @@
-import { Note } from "../../services/notes/model";
+import { Note } from '../../services/notes/model';
 
-export default interface RootStore {
+export interface RootStore {
     notes: Note[]
     selectedIndex: number | null
 }

@@ -1,6 +1,7 @@
-import {Store, Mutation } from "vuex"
-import { Note } from "../../services/notes/model";
-import RootStore from "../model/rootstore"
+import { Mutation } from 'vuex';
+
+import { Note } from '../../services/notes/model';
+import { RootStore } from '../model/rootstore';
 
 export const LOAD_NOTES_ACTION = "load-notes"
 
@@ -9,6 +10,6 @@ export interface LoadNotesPayload {
     notes: Note[]
 }
 
-export const loadNotesMutation: Mutation<RootStore> = (state, payload : LoadNotesPayload) => {
+export const loadNotesMutation: Mutation<RootStore> = (state, payload: LoadNotesPayload) => {
     state.notes = payload.notes;
 }

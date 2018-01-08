@@ -1,11 +1,11 @@
+import { ActionContext } from 'vuex';
+
+import { Note } from '../../services/notes/model';
+import { getNotes } from '../../services/notes/service';
+import { RootStore } from '../model/rootstore';
+import { fetchNotesAction } from './fetch-notes';
+
 jest.mock("../../services/notes/service")
-import { getNotes } from "../../services/notes/service";
-
-import { fetchNotesAction } from "./fetch-notes";
-import { ActionContext, Dispatch } from "vuex";
-import RootStore from "../model/rootstore";
-import { Note } from "../../services/notes/model";
-
 describe("fetchNotesAction", () => {
 
   let actionContext: ActionContext<RootStore, any>;

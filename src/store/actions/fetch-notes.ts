@@ -1,7 +1,8 @@
-import { Store, Action } from "vuex"
-import RootStore from "../model/rootstore"
-import { getNotes } from "../../services/notes/service";
-import { LoadNotesPayload } from "../mutations/load-notes"
+import { Action, Store } from 'vuex';
+
+import { getNotes } from '../../services/notes/service';
+import { RootStore } from '../model/rootstore';
+import { LoadNotesPayload } from '../mutations/load-notes';
 
 export const FETCH_NOTES_ACTION = "fetch-notes"
 

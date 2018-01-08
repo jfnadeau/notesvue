@@ -1,8 +1,9 @@
-import { shallow, Wrapper } from "vue-test-utils";
-import { NoteEditor } from "./note-editor";
-import { Note } from "../../services/notes/model";
-import Vue from "vue";
-import { createRenderer } from "vue-server-renderer";
+import Vue from 'vue';
+import { createRenderer } from 'vue-server-renderer';
+import { shallow, Wrapper } from 'vue-test-utils';
+
+import { Note } from '../../services/notes/model';
+import { NoteEditor } from './note-editor';
 
 describe("NoteEditor", () => {
 

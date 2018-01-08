@@ -1,8 +1,9 @@
-import { App } from './components/app/app';
-import Vue from "vue"
-import Store from "./store/root";
+import '../node_modules/purecss/build/pure.css';
 
-import "../node_modules/purecss/build/pure.css";
+import Vue from 'vue';
+
+import { App } from './components/app/app';
+import Store from './store/root';
 
 new Vue({
   el: '#app',

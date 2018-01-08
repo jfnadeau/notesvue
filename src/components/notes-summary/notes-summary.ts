@@ -1,17 +1,21 @@
-import Vue from "vue"
-import withRender from "./notes-summary.html"
-import { NoteSummary } from './note-summary';
+import './notes-summary.css';
+
+import Vue from 'vue';
+import { Component } from 'vue-property-decorator';
+
 import { commitSelectNote } from '../../store/mutations/select-note';
+import { NoteSummary } from './note-summary';
+import withRender from './notes-summary.html';
 
-import "./notes-summary.css"
-
-export const NotesSummary = withRender(Vue.extend({
-    methods: {
-        selectNote(selectedIndex: number) {
-            commitSelectNote(this.$store, selectedIndex);
-        }
-    },
+@withRender
+@Component({
     components: {
         NoteSummary
     }
-}));
+})
+export class NotesSummary extends Vue {
+
+    selectNote(selectedIndex: number) {
+        commitSelectNote(this.$store, selectedIndex);
+    }
+}

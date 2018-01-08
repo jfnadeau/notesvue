@@ -1,6 +1,7 @@
-import { Note } from './../../services/notes/model';
 import { Store } from 'vuex';
-import RootStore from '../model/rootstore';
+
+import { RootStore } from '../model/rootstore';
+import { Note } from './../../services/notes/model';
 
 export const selectedNoteGetter = (store: RootStore) => {
     return store.selectedIndex != null ? store.notes[store.selectedIndex] : null;

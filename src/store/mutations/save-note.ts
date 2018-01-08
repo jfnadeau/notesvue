@@ -1,6 +1,7 @@
-import { Store, Mutation } from "vuex"
-import { Note } from "../../services/notes/model";
-import RootStore from "../model/rootstore"
+import { Mutation } from 'vuex';
+
+import { Note } from '../../services/notes/model';
+import { RootStore } from '../model/rootstore';
 
 export const SAVE_NOTE_MUTATION = "save-note"
 

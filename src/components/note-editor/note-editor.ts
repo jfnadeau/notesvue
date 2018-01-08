@@ -1,10 +1,11 @@
-import { Note } from './../../services/notes/model';
-import Vue from "vue";
-import Component from 'vue-class-component'
-import { Prop, Watch } from "vue-property-decorator";
-import withRender from "./note-editor.html"
+import './note-editor.css';
 
-import "./note-editor.css"
+import Vue from 'vue';
+import Component from 'vue-class-component';
+import { Prop, Watch } from 'vue-property-decorator';
+
+import { Note } from './../../services/notes/model';
+import withRender from './note-editor.html';
 
 @Component
 @withRender
