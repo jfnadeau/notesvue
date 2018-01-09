@@ -4,14 +4,23 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-    entry: './src/main.ts',
+    entry: [
+        'whatwg-fetch',
+        './src/main.ts'
+    ],
     output: {
         path: __dirname + "/dist",
         filename: "[name].js"
     },
     devtool: 'source-map',
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        proxy: {
+            "/api": {
+                target: "http://localhost:3000",
+                pathRewrite: { "^/api": "" }
+            }
+        }
     },
     module: {
         rules: [
