@@ -11,10 +11,12 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
+    "@types/fetch-mock": "^5.12.2",
     "@types/jest": "^22.0.1",
     "@types/whatwg-fetch": "0.0.33",
     "css-loader": "^0.28.8",
     "extract-text-webpack-plugin": "^3.0.2",
+    "fetch-mock": "^6.0.0-beta.7",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.0.4",
     "jest-serializer-vue": "^0.3.0",

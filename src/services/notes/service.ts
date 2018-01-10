@@ -1,8 +1,8 @@
+import { fetchApi } from '../common/fetch-api';
 import { Note } from './model';
 
-export const getNotes = async () => {
-    let res = await fetch("/api/notes");
-    return res.json<Note[]>();
+export const getNotes = () => {
+    return fetchApi<Note[]>("notes");
 }
 
 export const persistNote = (note: Note) =>
