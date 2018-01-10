@@ -1,15 +1,15 @@
-import '../node_modules/purecss/build/pure.css';
+import "../node_modules/purecss/build/pure.css";
 
-import Vue from 'vue';
+import Vue from "vue";
 
-import { App } from './components/app/app';
-import Store from './store/root';
+import { App } from "./components/app/app";
+import Store from "./store/root";
 
-new Vue({
-  el: '#app',
+const app = new Vue({
+  el: "#app",
   store: Store,
   components: {
-    App
+    App,
   },
-  render: h => h('app')
+  render: (h) => h("app"),
 });

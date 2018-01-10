@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import Vue from "vue";
+import { Component, Prop } from "vue-property-decorator";
 
-import withRender from './note-summary.html';
+import withRender from "./note-summary.html";
 
 @withRender
 @Component

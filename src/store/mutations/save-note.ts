@@ -1,13 +1,13 @@
-import { Mutation } from 'vuex';
+import { Mutation } from "vuex";
 
-import { Note } from '../../services/notes/model';
-import { RootStore } from '../model/rootstore';
+import { Note } from "../../services/notes/model";
+import { RootStore } from "../model/rootstore";
 
-export const SAVE_NOTE_MUTATION = "save-note"
+export const SAVE_NOTE_MUTATION = "save-note";
 
 export interface SaveNotePayload {
-  type: "save-note"
-  note: Note
+  type: "save-note";
+  note: Note;
 }
 
 export const saveNoteMutation: Mutation<RootStore> = (state, payload: SaveNotePayload) => {
@@ -17,4 +17,4 @@ export const saveNoteMutation: Mutation<RootStore> = (state, payload: SaveNotePa
   } else {
     Object.assign(state.notes[state.selectedIndex], payload.note);
   }
-}
+};

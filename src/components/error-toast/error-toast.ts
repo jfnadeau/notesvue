@@ -1,10 +1,10 @@
-import './error-toast.css';
+import "./error-toast.css";
 
-import Vue from 'vue';
-import { Component, Watch } from 'vue-property-decorator';
+import Vue from "vue";
+import { Component, Watch } from "vue-property-decorator";
 
-import { commitClearError } from '../../store/mutations/notify-error';
-import withRender from './error-toast.html';
+import { commitClearError } from "../../store/mutations/notify-error";
+import withRender from "./error-toast.html";
 
 @withRender
 @Component
