@@ -43,7 +43,9 @@ describe("fetchNotesAction", () => {
 function mockRootStoreState(): RootStore {
   return {
     notes: [],
-    selectedIndex: null
+    selectedIndex: null,
+    hasError: false,
+    message: null
   };
 }
 
