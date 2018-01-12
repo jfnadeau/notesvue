@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+        <link rel="stylesheet" type="text/css" href="<%=htmlWebpackPlugin.files.chunks[chunk].css[0] %>">
+        <% } %>
 </head>
+
 <body>
-<div id="app"></div>
+    <div id="app"></div>
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+        <script type="module" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry.replace('-es5', '') %>"></script>
+        <script nomodule src="<%=htmlWebpackPlugin.files.chunks[chunk].entry.replace(/(\-es5)?\.js$/, '') %>-es5.js"></script>
+        <% } %>
 </body>
+
 </html>

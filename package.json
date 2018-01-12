@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "es6-object-assign": "^1.1.0",
+    "es6-promise": "^4.2.2",
     "purecss": "^1.0.0",
     "typescript": "^2.6.2",
     "vue": "^2.5.13",
@@ -28,6 +30,7 @@
     "ts-jest": "^22.0.0",
     "ts-loader": "^3.2.0",
     "tslint": "^5.9.1",
+    "uglifyjs-webpack-plugin": "^1.1.6",
     "vue-class-component": "^6.1.2",
     "vue-property-decorator": "^6.0.0",
     "vue-server-renderer": "^2.5.13",
@@ -40,7 +43,8 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
-    "start": "webpack-dev-server --open --hot --config webpack.config.prod.js",
+    "start": "webpack-dev-server --open --hot --config webpack.config.dev.js",
+    "start-es5": "webpack-dev-server --open --hot --env.es5 --config webpack.config.dev.js",
     "test": "jest",
     "mock-server": "json-server --watch test/server/mock.json"
   },

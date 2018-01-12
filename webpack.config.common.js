@@ -1,10 +1,10 @@
 const path = require("path");
 const webpack = require("webpack");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const merge = require('webpack-merge');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = {
+const es6 = {
   entry: [
     'whatwg-fetch',
     './src/main.ts'
@@ -37,9 +37,9 @@ module.exports = {
     extensions: ['.ts', ".js"]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "/src/index.html")
+      template: path.join(__dirname, "/src/index.html"),
+      inject: false
     }),
     new ExtractTextPlugin("[name].css", {
       allChunks: true
@@ -52,3 +52,34 @@ module.exports = {
     })
   ]
 };
+
+const es5 = merge.smart(es6, {
+  entry: [
+    'es6-object-assign/auto'
+  ],
+  output: {
+    filename: "[name]-es5.js"
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: {
+          loader: "ts-loader",
+          options: {
+            compilerOptions: {
+              "target": "es5"
+            }
+          }
+        }
+      }
+    ]
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      Promise: 'es6-promise'
+    })
+  ]
+});
+
+module.exports = { es5, es6 }
