@@ -8,7 +8,7 @@ import withRender from "./note-summary.html";
 export class NoteSummary extends Vue {
 
     @Prop({ required: true })
-    selected: Boolean;
+    selected: boolean;
 
     @Prop({ required: true })
     title: string;

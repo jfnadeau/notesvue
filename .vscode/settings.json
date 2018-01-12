@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
     "typescriptHero.resolver.organizeOnSave": true,
+    "typescriptHero.resolver.stringQuoteStyle": "\""
 }
