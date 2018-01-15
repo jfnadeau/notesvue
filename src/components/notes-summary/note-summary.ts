@@ -6,14 +6,13 @@ import withRender from "./note-summary.html";
 @withRender
 @Component
 export class NoteSummary extends Vue {
+  @Prop({ required: true })
+  selected: boolean;
 
-    @Prop({ required: true })
-    selected: boolean;
+  @Prop({ required: true })
+  title: string;
 
-    @Prop({ required: true })
-    title: string;
-
-    select() {
-        this.$emit("select");
-    }
+  select() {
+    this.$emit("select");
+  }
 }

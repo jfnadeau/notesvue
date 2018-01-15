@@ -7,22 +7,22 @@ import { fetchNotesAction } from "./fetch-notes";
 
 jest.mock("../../services/notes/service");
 describe("fetchNotesAction", () => {
-
   let actionContext: ActionContext<RootStore, any>;
   const mockGetNotesResult: Note[] = [
     {
       title: "Mock Title",
-      description: "Mock Description",
-    },
+      description: "Mock Description"
+    }
   ];
 
   beforeEach(() => {
     actionContext = mockActionContext(mockRootStoreState());
-    (getNotes as jest.Mock).mockReturnValue(Promise.resolve(mockGetNotesResult));
+    (getNotes as jest.Mock).mockReturnValue(
+      Promise.resolve(mockGetNotesResult)
+    );
   });
 
   it("should call getNotes service", async () => {
-
     if (typeof fetchNotesAction === "function") {
       await fetchNotesAction(actionContext, undefined);
     }
@@ -31,12 +31,14 @@ describe("fetchNotesAction", () => {
   });
 
   it("should commit the notes received to the store", async () => {
-
     if (typeof fetchNotesAction === "function") {
       await fetchNotesAction(actionContext, undefined);
     }
 
-    expect(actionContext.commit).toHaveBeenCalledWith({ type: "load-notes", notes: mockGetNotesResult });
+    expect(actionContext.commit).toHaveBeenCalledWith({
+      type: "load-notes",
+      notes: mockGetNotesResult
+    });
   });
 });
 
@@ -45,7 +47,7 @@ function mockRootStoreState(): RootStore {
     notes: [],
     selectedIndex: null,
     hasError: false,
-    message: null,
+    message: null
   };
 }
 
@@ -56,6 +58,6 @@ function mockActionContext<S>(state: S): ActionContext<S, any> {
     state,
     getters: {},
     rootState: {},
-    rootGetters: {},
+    rootGetters: {}
   };
 }

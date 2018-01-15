@@ -10,8 +10,10 @@ export interface SaveNotePayload {
   note: Note;
 }
 
-export const saveNoteMutation: Mutation<RootStore> = (state, payload: SaveNotePayload) => {
-
+export const saveNoteMutation: Mutation<RootStore> = (
+  state,
+  payload: SaveNotePayload
+) => {
   if (state.selectedIndex == null) {
     state.notes.push({ ...payload.note });
   } else {

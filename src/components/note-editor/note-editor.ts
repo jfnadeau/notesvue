@@ -10,23 +10,21 @@ import withRender from "./note-editor.html";
 @Component
 @withRender
 export class NoteEditor extends Vue {
+  @Prop() initialNote: Note;
 
-    @Prop()
-    initialNote: Note;
+  note: Note = { title: "", description: "" };
 
-    note: Note = { title: "", description: "" };
-
-    created() {
-        if (this.initialNote) {
-            this.note = this.initialNote;
-        }
+  created() {
+    if (this.initialNote) {
+      this.note = this.initialNote;
     }
+  }
 
-    @Watch("initialNote")
-    watchInitialNote(newInitialNote: Note) {
-        this.note = { ...newInitialNote };
-    }
-    save() {
-        this.$emit("save", { ...this.note });
-    }
+  @Watch("initialNote")
+  watchInitialNote(newInitialNote: Note) {
+    this.note = { ...newInitialNote };
+  }
+  save() {
+    this.$emit("save", { ...this.note });
+  }
 }

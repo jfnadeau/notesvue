@@ -1,14 +1,11 @@
 const path = require("path");
 const webpack = require("webpack");
-const merge = require('webpack-merge');
+const merge = require("webpack-merge");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const es6 = {
-  entry: [
-    'whatwg-fetch',
-    './src/main.ts'
-  ],
+  entry: ["whatwg-fetch", "./src/main.ts"],
   output: {
     path: __dirname + "/dist",
     filename: "[name].js"
@@ -17,11 +14,11 @@ const es6 = {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader'
+        use: "ts-loader"
       },
       {
         test: /\.html$/,
-        loader: 'vue-template-loader',
+        loader: "vue-template-loader",
         exclude: path.join(__dirname, "/src/index.html")
       },
       {
@@ -34,7 +31,7 @@ const es6 = {
     ]
   },
   resolve: {
-    extensions: ['.ts', ".js"]
+    extensions: [".ts", ".js"]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -46,7 +43,7 @@ const es6 = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendor",
-      minChunks: function (module) {
+      minChunks: function(module) {
         return module.context && module.context.indexOf("node_modules") !== -1;
       }
     })
@@ -54,9 +51,7 @@ const es6 = {
 };
 
 const es5 = merge.smart(es6, {
-  entry: [
-    'es6-object-assign/auto'
-  ],
+  entry: ["es6-object-assign/auto"],
   output: {
     filename: "[name]-es5.js"
   },
@@ -68,7 +63,7 @@ const es5 = merge.smart(es6, {
           loader: "ts-loader",
           options: {
             compilerOptions: {
-              "target": "es5"
+              target: "es5"
             }
           }
         }
@@ -77,9 +72,9 @@ const es5 = merge.smart(es6, {
   },
   plugins: [
     new webpack.ProvidePlugin({
-      Promise: 'es6-promise'
+      Promise: "es6-promise"
     })
   ]
 });
 
-module.exports = { es5, es6 }
+module.exports = { es5, es6 };

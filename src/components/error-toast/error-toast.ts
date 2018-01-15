@@ -9,7 +9,6 @@ import withRender from "./error-toast.html";
 @withRender
 @Component
 export class ErrorToast extends Vue {
-
   @Watch("$store.state.hasError")
   hasErrorChanged(val: boolean, oldVal: boolean) {
     if (val) {

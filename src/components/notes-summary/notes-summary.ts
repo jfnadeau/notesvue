@@ -9,13 +9,12 @@ import withRender from "./notes-summary.html";
 
 @withRender
 @Component({
-    components: {
-        NoteSummary,
-    },
+  components: {
+    NoteSummary
+  }
 })
 export class NotesSummary extends Vue {
-
-    selectNote(selectedIndex: number) {
-        commitSelectNote(this.$store, selectedIndex);
-    }
+  selectNote(selectedIndex: number) {
+    commitSelectNote(this.$store, selectedIndex);
+  }
 }

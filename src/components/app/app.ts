@@ -14,22 +14,22 @@ import withRender from "./app.html";
 
 @withRender
 @Component({
-    components: {
-        NotesSummary,
-        NoteEditor,
-        ErrorToast,
-    },
+  components: {
+    NotesSummary,
+    NoteEditor,
+    ErrorToast
+  }
 })
 export class App extends Vue {
-    created() {
-        dispatchFetchNotes(this.$store);
-    }
+  created() {
+    dispatchFetchNotes(this.$store);
+  }
 
-    get initialNote(): Note {
-        return getSelectedNote(this.$store);
-    }
+  get initialNote(): Note {
+    return getSelectedNote(this.$store);
+  }
 
-    save(note: Note) {
-        dispatchPersistNote(this.$store, note);
-    }
+  save(note: Note) {
+    dispatchPersistNote(this.$store, note);
+  }
 }

@@ -10,7 +10,9 @@
     "typescript": "^2.6.2",
     "vue": "^2.5.13",
     "vuex": "^3.0.1",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "vue-property-decorator": "^6.0.0",
+    "vue-class-component": "^6.1.2"
   },
   "devDependencies": {
     "@types/fetch-mock": "^5.12.2",
@@ -26,13 +28,13 @@
     "jest-serializer-vue": "^0.3.0",
     "json-server": "^0.12.1",
     "node-fetch": "^1.7.3",
+    "prettier": "1.10.2",
     "style-loader": "^0.19.1",
     "ts-jest": "^22.0.0",
     "ts-loader": "^3.2.0",
     "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.6.0",
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "vue-class-component": "^6.1.2",
-    "vue-property-decorator": "^6.0.0",
     "vue-server-renderer": "^2.5.13",
     "vue-template-compiler": "^2.5.13",
     "vue-template-loader": "^0.3.1",
@@ -43,35 +45,26 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
-    "start": "webpack-dev-server --open --hot --config webpack.config.dev.js",
-    "start-es5": "webpack-dev-server --open --hot --env.es5 --config webpack.config.dev.js",
+    "start":
+      "webpack-dev-server --open --hot --env.es6 --config webpack.config.dev.js",
+    "start-es5":
+      "webpack-dev-server --open --hot --env.es5 --config webpack.config.dev.js",
     "test": "jest",
     "mock-server": "json-server --watch test/server/mock.json"
   },
   "jest": {
     "transform": {
       "^.+\\.tsx?$": "ts-jest",
-      "^.+\\.html$": "<rootDir>/test/vue-template-transformer-jest/transformer.js"
+      "^.+\\.html$":
+        "<rootDir>/test/vue-template-transformer-jest/transformer.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node",
-      "html"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node", "html"],
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/test/jest-ignore.js"
     },
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/jest-serializer-vue"
-    ],
-    "setupFiles": [
-      "<rootDir>/test/setup-polyfill.js"
-    ]
+    "snapshotSerializers": ["<rootDir>/node_modules/jest-serializer-vue"],
+    "setupFiles": ["<rootDir>/test/setup-polyfill.js"]
   },
   "author": "",
   "license": "ISC"

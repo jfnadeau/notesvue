@@ -5,18 +5,17 @@ import { Note } from "./model";
 import { getNotes } from "./service";
 
 describe("notes api", () => {
-
   afterEach(fetchMock.restore);
 
   describe("getNotes", () => {
-
-    const mockNotes: Note[] = [{
-      title: "mock title",
-      description: "mock description",
-    }];
+    const mockNotes: Note[] = [
+      {
+        title: "mock title",
+        description: "mock description"
+      }
+    ];
 
     it("should fetch /api/notes and return a Note array", async () => {
-
       fetchMock.getOnce("/api/notes", mockNotes);
 
       const notes = await getNotes();
@@ -25,19 +24,17 @@ describe("notes api", () => {
     });
 
     it("should handle standard api errors", async () => {
-
       const apiErrResp: ApiErrorResponse = {
-        message: "API down for maintenance",
+        message: "API down for maintenance"
       };
 
       fetchMock.get("/api/notes", {
         body: apiErrResp,
-        status: 500,
+        status: 500
       });
 
       await expect(getNotes()).rejects.toThrowError(ApiError);
       await expect(getNotes()).rejects.toThrowError(apiErrResp.message);
     });
-
   });
 });

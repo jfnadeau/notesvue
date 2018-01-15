@@ -18,24 +18,24 @@ import { SELECT_NOTE_MUTATION, selectNoteMutation } from "./mutations/select-not
 Vue.use(Vuex);
 
 export default new Vuex.Store<RootStore>({
-    state: {
-        notes: [],
-        selectedIndex: null,
-        hasError: false,
-        message: null,
-    },
-    mutations: {
-        [SELECT_NOTE_MUTATION]: selectNoteMutation,
-        [LOAD_NOTES_MUTATION]: loadNotesMutation,
-        [SAVE_NOTE_MUTATION]: saveNoteMutation,
-        [NOTIFY_ERROR_MUTATION]: notifyErrorMutation,
-        [CLEAR_ERROR_MUTATION]: clearErrorMutation,
-    },
-    actions: {
-        [FETCH_NOTES_ACTION]: fetchNotesAction,
-        [PERSIST_NOTE_ACTION]: persistNoteAction,
-    },
-    getters: {
-        selectedNoteGetter,
-    },
+  state: {
+    notes: [],
+    selectedIndex: null,
+    hasError: false,
+    message: null
+  },
+  mutations: {
+    [SELECT_NOTE_MUTATION]: selectNoteMutation,
+    [LOAD_NOTES_MUTATION]: loadNotesMutation,
+    [SAVE_NOTE_MUTATION]: saveNoteMutation,
+    [NOTIFY_ERROR_MUTATION]: notifyErrorMutation,
+    [CLEAR_ERROR_MUTATION]: clearErrorMutation
+  },
+  actions: {
+    [FETCH_NOTES_ACTION]: fetchNotesAction,
+    [PERSIST_NOTE_ACTION]: persistNoteAction
+  },
+  getters: {
+    selectedNoteGetter
+  }
 });

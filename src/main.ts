@@ -9,7 +9,7 @@ const app = new Vue({
   el: "#app",
   store: Store,
   components: {
-    App,
+    App
   },
-  render: (h) => h("app"),
+  render: h => h("app")
 });

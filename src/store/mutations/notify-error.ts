@@ -14,12 +14,18 @@ export interface ClearErrorPayload {
   type: "clear-error";
 }
 
-export const notifyErrorMutation: Mutation<RootStore> = (state, payload: NotifyErrorPayload) => {
+export const notifyErrorMutation: Mutation<RootStore> = (
+  state,
+  payload: NotifyErrorPayload
+) => {
   state.hasError = true;
   state.message = payload.message;
 };
 
-export const clearErrorMutation: Mutation<RootStore> = (state, payload: ClearErrorPayload) => {
+export const clearErrorMutation: Mutation<RootStore> = (
+  state,
+  payload: ClearErrorPayload
+) => {
   state.hasError = false;
   state.message = null;
 };
